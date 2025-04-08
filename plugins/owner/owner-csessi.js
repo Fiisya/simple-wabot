@@ -26,7 +26,7 @@ const handler = async (m, { conn }) => {
   });
 };
 
-handler.help = ["csessi", "clearsessi"].map((a) => a + " *[clear trash]*");
+handler.help = ["csessi"].map((a) => a + " *[clear trash]*");
 handler.tags = ["owner"];
 handler.command = handler.help = ["csessi", "clearsessi"];
 handler.rowner = true;

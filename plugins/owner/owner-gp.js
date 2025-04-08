@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 module.exports = {
-    help: ["gp", "getplugins"].map((a) => a + " *[filename]*"),
+    help: ["getplugins"].map((a) => a + " *[filename]*"),
     tags: ["owner"],
     command: ["gp", "getplugins"],
     code: async (m, {
