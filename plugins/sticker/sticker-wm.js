@@ -25,7 +25,7 @@ let handler = async (m, {
         throw 'Gagal!, Balas Gambar/video dengan caption *.stiker*'
     }
 }
-handler.help = ['wm', 'watermark']
+handler.help = ['watermark']
 handler.tags = ['sticker']
 handler.command = /^wm|watermark?$/i
 
