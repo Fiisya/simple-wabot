@@ -57,7 +57,7 @@ let handler = async (m, {
 };
 
 handler.help = ['detiknews'];
-handler.tags = ['news', 'information'];
+handler.tags = ['internet'];
 handler.command = /^(detiknews|newsdetik|beritadetik)$/i;
 handler.limit = true;
 handler.group = false;

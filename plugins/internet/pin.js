@@ -113,8 +113,8 @@ let handler = async (m, {
     }
 };
 
-handler.help = ["pinterest", "pin", "pin_slide", "pinslide"].map((a) => a + " *[query]*");
-handler.tags = ["tools", "internet"];
+handler.help = ["pinterest""].map((a) => a + " *[query]*");
+handler.tags = ["internet"];
 handler.command = ["pinterest", "pin", "pin_slide", "pinslide"];
 
 module.exports = handler;

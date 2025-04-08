@@ -29,7 +29,7 @@ const handler = async (m, { conn, text, usedPrefix, command }) => {
     conn.reply(m.chat, "❌ Terjadi kesalahan saat mengambil data", m);
   }
 };
-handler.help = ["lahelu", "meme"].map((a) => a + " *[random meme]*");
+handler.help = ["meme"].map((a) => a + " *[random meme]*");
 handler.tags = ["internet"];
 handler.command = ["lahelu", "meme"];
 
