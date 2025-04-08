@@ -1,5 +1,10 @@
 //Simple Base Botz
 // • Credits : wa.me/62895322391225 [ Asyl ]
+// • Feature : info/menu
+
+
+//Simple Base Botz
+// • Credits : wa.me/62895322391225 [ Asyl ]
 // • Feature : menu
 
 
@@ -43,10 +48,10 @@ Styles = (text, style = 1) => {
 };
 const defaultMenu = {
     before: ``.trimStart(),
-header: `≡ *%category*
+    header: `≡ *%category*
 ┌`,
-  body: '│➤ %cmd',
-  footer: `└`,
+    body: '│➤ %cmd',
+    footer: `└`,
     after: ``,
 }
 let handler = async (m, {
@@ -312,7 +317,7 @@ let handler = async (m, {
                 tekss += '│  ◦ Pengguna:' + ` ${totalreg} Users\n`
                 tekss += '│  ◦ Groups:' + ` ${group.length} Groups\n`
                 tekss += '└  ◦ Memory:' + ` ${format(os.totalmem() - os.freemem())} / ${format(os.totalmem())}\n\n`
-                tekss +=` –   *USER INFORMATION*\n`
+                tekss += ` –   *USER INFORMATION*\n`
                 tekss += '┌  ◦ Name:' + ` ${name}\n`
                 tekss += '│  ◦ Limit:' + ` ${lim}\n`
                 tekss += '└  ◦ Status:' + ` ${isPremium}\n`
@@ -487,7 +492,7 @@ let handler = async (m, {
                                             url: 'https://wa.me/'
                                         },
                                         mimetype: 'image/png',
-                                        fileName: `${name}`,
+                                        fileName: ` ${ucap} ${name}`,
                                         jpegThumbnail: await conn.resize(ppUrl, 400, 400),
                                         fileLength: 0
                                     }, {
@@ -640,7 +645,7 @@ let handler = async (m, {
     }
 }
 
-handler.help = ['help']
+handler.help = ['menu']
 handler.tags = ['main']
 handler.command = /^(menu|help)$/i
 

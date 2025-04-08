@@ -30,7 +30,8 @@ ${ar.map(a => Object.entries(a).map(([a, b]) => `   ◦ ${a} : ${b}`).join("\n")
     }
 }
 
-handler.help = handler.command = ["chlist", "totalsaluran"];
+handler.help = ["chlist"];
+handler.command = ["chlist", "totalsaluran"];
 handler.tags = ["info", "totalsaluran"]
 
 module.exports = handler;

@@ -20,7 +20,7 @@ ${sn}`.trim())
 }
 
 handler.help = ['nomorseri']
-handler.tags = ['xp', 'rpg']
+handler.tags = [''rpg']
 handler.command = ['nomorseri']
 handler.group = true
 handler.rpg = true

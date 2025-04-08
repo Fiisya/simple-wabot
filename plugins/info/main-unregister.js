@@ -20,7 +20,7 @@ let handler = async function(m, {
     m.reply(`✅ Success`)
 }
 handler.help = ['unreg <Nomor Seri>']
-handler.tags = ['rg']
+handler.tags = ['main']
 
 handler.command = ['unreg']
 handler.register = true

@@ -41,7 +41,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 
 };
 
-handler.help = ['sc', 'sourcecode'];
+handler.help = ['sc'];
 handler.tags = ['info'];
 handler.command = /^(sc|sourcecode)$/i;
 handler.register = false;

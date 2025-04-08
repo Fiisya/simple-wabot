@@ -16,7 +16,7 @@ let handler = async (m, { conn, args, command }) => {
     (v) => v.help && v.tags,
   ).length;
   let hasil = fitur.length;
-  conn.sendButton(m.chat, [["👥 INFO - SCRIPT", ".sc"]], fkontak, {
+  conn.sendButton(m.chat, [["👥 INFO - SCRIPT", ".sc"]], m, {
     body: `*+ T O T A L - F E A T U R E S*
 
 *• Total Files :* ${Object.keys(plugins).length}

@@ -33,7 +33,7 @@ let tags = {
     'game': 'MENU GAME',
     'group': 'MENU GROUP',
     'info': 'MENU INFO',
-    'internet': 'INTERNET',
+    'internet': 'MENU INTERNET',
     'maker': 'MENU MAKER',
     'owner': 'MENU OWNER',
     'quotes': 'MENU QUOTES',

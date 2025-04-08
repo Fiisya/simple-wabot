@@ -28,7 +28,7 @@ let handler = async (m, {
 
     m.reply(cap);
 };
-handler.help = ["listgc", "gcl"].map((a) => a + " *[view all group join]*");
+handler.help = ["listgc"].map((a) => a + " *[view all group join]*");
 handler.tags = ["info"];
 handler.command = ["listgc", "gcl"];
 module.exports = handler;

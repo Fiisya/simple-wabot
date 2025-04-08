@@ -7,7 +7,7 @@
 */
 
 module.exports = {
-  help: ["request", "req"].map((a) => a + " *[name features]*"),
+  help: ["request"].map((a) => a + " *[name features]*"),
   tags: ["info"],
   command: ["req", "request"],
   code: async (

@@ -36,8 +36,8 @@ Serial Number:
 ${sn}
 `.trim())
 }
-handler.help = ['daftar', 'reg', 'register'].map(v => v + ' <nama>.<umur>')
-handler.tags = ['xp']
+handler.help = ['daftar'].map(v => v + ' <nama>.<umur>')
+handler.tags = ['main']
 
 handler.command = /^(daftar|reg(ister)?)$/i
 

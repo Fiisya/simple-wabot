@@ -42,7 +42,8 @@ let handler = async (m, {
     }, {})
 };
 
-handler.command = handler.help = ['dashboard', 'totalhits']
+handler.command =  ['dashboard', 'totalhits']
+handler.help = ['dashboard']
 handler.tags = ['info']
 module.exports = handler;
 

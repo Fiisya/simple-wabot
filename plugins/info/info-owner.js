@@ -25,21 +25,19 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
         img,
         [],
         null,
-        [["CHAT ME", `https://wa.me/${num.split("@")[0]}?text=Hallo+Word`]],
+        [["CHAT ME", `https://wa.me/${num.split("@")[0]}?text=Hallo+Kontol`]],
       ]);
     }
 
     conn.sendCarousel(m.chat, array, m, {
-      body: `*[ MY CREATIR ]*
+      body: `*[ MY CREATOR ]*
 ${global.owner.map((a, i) => `*${i + 1}.* @` + a + " *[" + " " + conn.getName(a + "@s.whatsapp.net") + "]*").join("\n")}
 
-*[ INFORMATION ]*
-> • _Jangan Spam nomor Owner *[ Sanksi Blokir ]*_
-> • _Jangan Call Nomor Owner *[ Sanksi Blokir ]*_`,
+`,
     });
 };
 
-handler.help = ["owner", "creator"].map((a) => a + " *[Contact Owner]*");
+handler.help = ["owner"].map((a) => a + " *[Contact Owner]*");
 handler.tags = ["info"];
 handler.command = ["owner", "creator"];
 
