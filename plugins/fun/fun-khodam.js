@@ -1,5 +1,5 @@
 module.exports = {
-  help: ["cekkodam", "khodam", "cekkhodam", "ck"].map(
+  help: ["cekkhodam"].map(
     (a) => a + " *[random khodam]*",
   ),
   tags: ["fun"],
