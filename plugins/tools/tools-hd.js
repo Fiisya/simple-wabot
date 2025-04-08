@@ -1,120 +1,81 @@
-const ffmpeg = require('fluent-ffmpeg');
-const fs = require("fs").promises;
-let FormData = require("form-data");
-let Jimp = require("jimp");
-let fetch = require("node-fetch")
-async function Upscale(imageBuffer) {
-    try {
-        const response = await fetch("https://lexica.qewertyy.dev/upscale", {
-            body: JSON.stringify({
-                image_data: Buffer.from(imageBuffer, "base64"),
-                format: "binary",
-            }),
-            headers: {
-                "Content-Type": "application/json",
-            },
-            method: "POST",
-        });
-        return Buffer.from(await response.arrayBuffer());
-    } catch {
-        return null;
-    }
-};
 
-async function enhanceVideo(buffer) {
-    const output = `${process.cwd()}/output.mp4`;
-    const input = `${process.cwd()}/input.mp4`;
-    await fs.writeFile(input, buffer);
-    return new Promise((resolve, reject) => {
-        ffmpeg(input)
-            .outputOptions([
-                '-vf', 'hqdn3d,minterpolate=fps=60',
-                '-preset', 'medium',
-                '-crf', '18',
-                '-c:v', 'libx264',
-                '-c:a', 'aac',
-                '-b:a', '128k',
-                '-movflags', 'faststart'
-            ])
-            .on('progress', (progress) => {
-                console.log(`Processing: ${progress.percent}% done`);
-            })
-            .on('end', async () => {
-                console.log('Video enhancement completed successfully.');
-                try {
-                    const data = await fs.readFile(output);
-                    await fs.unlink(input);
-                    await fs.unlink(output);
-                    resolve(data);
-                } catch (err) {
-                    console.error('Error during file operations:', err);
-                    reject(err);
-                }
-            })
-            .on('error', (err) => {
-                console.error('Error during video enhancement:', err);
-                reject(err);
-            })
-            .save(output);
-    });
-}
 
-let handler = async (m, {
-    conn,
-    usedPrefix,
-    command
-}) => {
+const FormData = require('form-data');
+const Jimp = require('jimp');
+
+const handler = async (m, { conn, usedPrefix, command }) => {
+  try {
     let q = m.quoted ? m.quoted : m;
     let mime = (q.msg || q).mimetype || q.mediaType || "";
+    
     if (!mime) {
-        throw `*• Example:* ${usedPrefix + command} *[reply/send media]*`;
+      return m.reply(`Harap reply gambar untuk meningkatkan *HD*.`);
     }
-    m.reply(wait);
-    let buffer = await q.download();
-    if (/video/.test(mime)) {
-        let data = await enhanceVideo(buffer);
-        await conn.sendFile(m.chat, data, "Remini.mp4", `*乂 ${command.split("").join(" ").toUpperCase()} - V I D E O*
-        
-   ◦ Size : ${await Func.formatSize(data.length)}`, m);
-    } else {        
-        let target = m.quoted ? m.quoted : m;
-        let buffer = await target.download();
-        let enhancedImage = await Upscale(buffer);
-        let size = Func.formatSize(enhancedImage.length);
-        await conn.sendFile(m.chat, enhancedImage, "Remini.jpg", `*乂 ${command.split("").join(" ").toUpperCase()} - I M A G E*
-        
-   ◦ Size : ${size}`, m);
+    
+    if (!/image\/(jpe?g|png)/.test(mime)) {
+      return m.reply(`Format file tidak didukung, silakan kirim atau balas gambar.`);
     }
-    await q.delete();
+    
+    m.reply(`Meningkatkan kualitas gambar....`);
+    
+    let img = await q.download?.();
+    let pr = await remini(img, "enhance");
+    
+    conn.sendMessage(m.chat, {
+      image: pr,
+      caption: `Berhasil Meningkatkan Kualitas Gambar`
+    }, { quoted: m });
+
+  } catch (error) {
+    console.error(error); // Log error untuk debugging
+    return m.reply(`Terjadi kesalahan.`);
+  }
 };
 
-handler.help = [
-    "unblur",
-    "enchaner",
-    "enhance",
-    "hdr",
-    "colorize",
-    "hd",
-    "remini",
-    "hdvid",
-    "videoenchance",
-    "videohd",
-    "unblur",
-].map((a) => a + " *[reply/send media]*");
+handler.help = ["hd"];
 handler.tags = ["tools"];
-handler.premium = false;
-handler.command = [
-    "unblur",
-    "enchaner",
-    "enhance",
-    "hdr",
-    "colorize",
-    "hd",
-    "remini",
-    "hdvid",
-    "videoenchance",
-    "videohd",
-    "unblur",
-];
+handler.limit = true;
+handler.register = true;
+handler.command = ["remini", "hd", "hdr"];
 
 module.exports = handler;
+
+async function remini(imageData, operation) {
+  return new Promise(async (resolve, reject) => {
+    const availableOperations = ["enhance", "recolor", "dehaze"];
+    if (!availableOperations.includes(operation)) {
+      operation = availableOperations[0]; // Default ke 'enhance' jika operasi tidak valid
+    }
+    
+    const baseUrl = `https://inferenceengine.vyro.ai/${operation}.vyro`;
+    const formData = new FormData();
+    formData.append("image", Buffer.from(imageData), {
+      filename: "enhance_image_body.jpg",
+      contentType: "image/jpeg"
+    });
+    
+    formData.append("model_version", 1, {
+      "Content-Transfer-Encoding": "binary",
+      contentType: "multipart/form-data; charset=utf-8"
+    });
+    
+    formData.submit({
+      url: baseUrl,
+      host: "inferenceengine.vyro.ai",
+      path: `/${operation}`,
+      protocol: "https:",
+      headers: {
+        "User-Agent": "okhttp/4.9.3",
+        Connection: "Keep-Alive",
+        "Accept-Encoding": "gzip"
+      }
+    }, (err, res) => {
+      if (err) return reject(err);
+      
+      const chunks = [];
+      res.on("data", chunk => chunks.push(chunk));
+      res.on("end", () => resolve(Buffer.concat(chunks)));
+      res.on("error", err => reject(err));
+    });
+  });
+}

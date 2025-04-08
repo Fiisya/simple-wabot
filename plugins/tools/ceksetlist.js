@@ -3,6 +3,10 @@
 // • Feature : tools/ceksetlist
 
 
+//Simple Base Botz
+// • Credits : wa.me/62895322391225 [ Asyl ]
+// • Feature : tools/ceksetlist
+
 
 const fs = require('fs');
 const path = require('path');
@@ -33,7 +37,7 @@ const handler = async (message, {
 };
 
 handler.help = ['ceksetlist'];
-handler.tags = ['tools'];
+handler.tags = ['main'];
 handler.command = /^ceksetlist$/i;
 handler.owner = true;
 module.exports = handler;

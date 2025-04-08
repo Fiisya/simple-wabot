@@ -1,3 +1,8 @@
+//Simple Base Botz
+// • Credits : wa.me/62895322391225 [ Asyl ]
+// • Feature : tools/tourl
+
+
 const fetch = require("node-fetch");
 const crypto = require("crypto");
 const FormData = require("form-data");
@@ -30,7 +35,9 @@ let handler = async (m, {
 
         let filename = '../../tmp/' + Date.now() + '.' + ext;
         fs.writeFileSync(filename, media);
-        const { uploadedLinks } = await Telegraph(filename)
+        const {
+            uploadedLinks
+        } = await Telegraph(filename)
         fs.unlinkSync(filename);
         m.reply(`*乂 T E L E G R A - P H - U P L O A D E R*
   ◦ Size : ${Func.formatSize(media.length)}

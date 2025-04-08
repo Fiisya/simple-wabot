@@ -156,7 +156,7 @@ ${setlist.replace('⇒', itemList)}
 };
 
 handler.help = ['liststore', 'dellist', 'editlist', 'transaksi'];
-handler.tags = ['tools'];
+handler.tags = ['main'];
 handler.command = /^liststore|dellist|editlist|transaksi$/i;
 handler.owner = false;
 

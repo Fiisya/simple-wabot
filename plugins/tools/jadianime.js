@@ -122,8 +122,8 @@ let handler = async (m, {
         caption: `*乂 Jadianime*\n\n*Size:* ${Func.formatSize(media.length)}\n*Type:* image/png`
     }, { quoted: m })
 };
-handler.help = ["jadianime", "toanime"].map((a) => a + " *[search/url]*");
-handler.tags = ["tools", "internet"];
+handler.help = ["jadianime"].map((a) => a + " *[search/url]*");
+handler.tags = ["tools"];
 handler.command = ["jadianime", "toanime"];
 
 module.exports = handler;

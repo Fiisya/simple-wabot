@@ -52,7 +52,7 @@ const handler = async (message, {
 };
 
 handler.help = ['addlist'];
-handler.tags = ['tools'];
+handler.tags = ['main'];
 handler.command = /^addlist$/i;
 handler.owner = false;
 module.exports = handler;

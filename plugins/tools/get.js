@@ -13,7 +13,7 @@ function isUrl(string) {
 }
 module.exports = {
     help: ["get"].map(a => a + " *[url]*"),
-    tags: ["downloader"],
+    tags: ["tools"],
     command: ["get"],
     code: async (m, {
         conn,

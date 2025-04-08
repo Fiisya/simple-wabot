@@ -13,7 +13,7 @@ let handler = async (m, { text, usedPrefix, command }) => {
   const message = await Encrypt(m.quoted.text);
   return m.reply(message);
 };
-handler.help = ["encrypt", "enc"].map((a) => a + " *[reply code]*");
+handler.help = ["encrypt"].map((a) => a + " *[reply code]*");
 handler.tags = ["tools"];
 handler.command = ["enc", "encrypt"];
 handler.limit = true;

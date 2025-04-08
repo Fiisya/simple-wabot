@@ -45,7 +45,7 @@ const handler = async (message, {
 };
 
 handler.help = ['delsetlist'];
-handler.tags = ['tools'];
+handler.tags = ['main'];
 handler.command = /^delsetlist$/i;
 handler.owner = true;
 module.exports = handler;

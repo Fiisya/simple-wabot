@@ -78,7 +78,7 @@ Ketik nama kata kunci untuk melihat isi nya!`;
 };
 
 handler.help = ['editsetlist'];
-handler.tags = ['tools'];
+handler.tags = ['main'];
 handler.command = /^editsetlist$/i;
 handler.owner = true;
 module.exports = handler;

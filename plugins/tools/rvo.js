@@ -1,5 +1,5 @@
 module.exports = {
-    help: ["rvo", "readviewonce"].map(a => a + " *[reply viewonce]*"),
+    help: ["readviewonce"].map(a => a + " *[reply viewonce]*"),
     tags: ["tools"],
     command: ["rvo", "readviewonce", "liat", "intip"],
     code: async (m, {

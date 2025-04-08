@@ -79,7 +79,7 @@ Ketik nama kata kunci untuk melihat isi nya!`;
 };
 
 handler.help = ['setlist'];
-handler.tags = ['tools'];
+handler.tags = ['main'];
 handler.command = /^setlist$/i;
 handler.owner = true;
 module.exports = handler;

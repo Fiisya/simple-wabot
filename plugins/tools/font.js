@@ -9,7 +9,7 @@ let handler = async (m, {
     if (!text) return m.reply("*Example:* .font Hallo word");
     conn.reply(m.chat, Object.entries(await stylizeText(text)).map(([name, value]) => `*${name}*\n${value}`).join`\n\n`, m)
 }
-handler.help = ['font', 'styletext'].map(v => v + ' *<text>*')
+handler.help = ['styletext'].map(v => v + ' *<text>*')
 handler.tags = ['tools']
 handler.command = /^(font|styletext)$/i
 module.exports = handler

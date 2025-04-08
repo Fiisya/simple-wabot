@@ -77,7 +77,7 @@ let handler = async (m, {
     }
 }
 
-handler.help = ['transcribe', 'transkripsi'];
+handler.help = ['transcribe'];
 handler.tags = ['tools']
 handler.command = /^(transcribe|transkripsi)$/i;
 handler.limit = false;
