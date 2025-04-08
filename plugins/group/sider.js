@@ -48,7 +48,7 @@ let handler = async (m, {
 }
 handler.help = ['gcsider']
 handler.tags = ['group']
-handler.command = /^(gcsider)$/i
+handler.command = /^(gcsider|sider)$/i
 handler.group = true
 handler.botAdmin = true
 

@@ -38,7 +38,7 @@ let handler = async (
   }
 };
 
-handler.help = ["group", "gc", "grup"].map((a) => a + " *[open/close]*");
+handler.help = ["group"].map((a) => a + " *[open/close]*");
 handler.tags = ["group"];
 handler.command = ["group", "gc", "grup"];
 handler.group = true;

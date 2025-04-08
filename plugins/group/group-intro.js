@@ -6,10 +6,7 @@ let handler = async (m, { conn, text, usedPrefix, command }) => {
 │ *Nama     :* 
 │ *Gender   :* 
 │ *Umur      :* 
-│ *Hobby    :* 
-│ *Kelas      :* 
 │ *Asal         :* 
-│ *Agama    :* 
 │ *Status     :* 
 ╰──────────────`,
     fkontak,

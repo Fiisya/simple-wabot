@@ -46,7 +46,7 @@ let handler = async (m, {
 };
 
 handler.help = ['demote @user'];
-handler.tags = ['group', 'owner'];
+handler.tags = ['group'];
 handler.command = /^(demo?te|\↓)$/i;
 
 handler.group = true;

@@ -46,7 +46,7 @@ let handler = async (m, {
 };
 
 handler.help = ['promote @user'];
-handler.tags = ['group', 'owner'];
+handler.tags = ['group'];
 handler.command = /^(promo?te|admin|\^)$/i;
 
 handler.group = true;

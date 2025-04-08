@@ -1,18 +1,10 @@
-//© AkiraaBot 2023-2024
-// • Credits : wa.me/6287869975929 [ Bang syaii ]
-// • Owner: 6283831945469,6287869975929
-
-/*
-• untuk siapa pun yang ketahuan menjual script ini tanpa sepengetahuan developer mohon untuk dilaporkan !
-*/
-
 //Simple Base Botz
 // • Credits : wa.me/62895322391225 [ Asyl ]
 // • Feature : group/group-totalmember.js
 
 
 module.exports = {
-    help: ["totalmem", "askot"].map((a) => a + " *[total member]*"),
+    help: ["totalmem"].map((a) => a + " *[total member]*"),
     tags: ["group"],
     command: ["totalmem", "askot"],
     group: true,
