@@ -39,7 +39,7 @@ handler.all = async function (m) {
         id: "",
       },
       message: {
-        conversation: `*© Simple Base Botz*`,
+        conversation: `*© Asyl-Botz*`,
       },
     };
   }
