@@ -11,7 +11,7 @@
     "@bochilteam/scraper": "^4.2.4",
     "@google/generative-ai": "^0.24.0",
     "acrcloud": "^1.4.0",
-    "akiraa-scrape": "^1.1.0",
+    "akiraa-scrape": "^1.2.1",
     "archiver": "^7.0.1",
     "awesome-phonenumber": "^2.73.0",
     "axios": "^0.27.2",
