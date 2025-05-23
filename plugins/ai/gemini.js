@@ -21,7 +21,7 @@ let handler = async (m, {
 }) => {
     if (!text && !m.quoted) return m.reply("• *Contoh:* .gemini selamat pagi");
 
-    const genAI = new GoogleGenerativeAI("AIzaSyDdfNNmvphdPdHSbIvpO5UkHdzBwx7NVm0");
+    const genAI = new GoogleGenerativeAI(""); // your gemini apikey
     const geminiProModel = genAI.getGenerativeModel({
         model: "gemini-1.5-pro"
     });
