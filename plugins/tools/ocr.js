@@ -11,7 +11,7 @@ const fetch = require('node-fetch');
 const FormData = require('form-data');
 
 // Inisialisasi Gemini
-const genAI = new GoogleGenerativeAI('AIzaSyA6M9JsIsaP76MZm2NZheWQkPIDJ01Koic');
+const genAI = new GoogleGenerativeAI(''); // your gemini apikey
 const model = genAI.getGenerativeModel({
     model: 'gemini-1.5-flash'
 });
